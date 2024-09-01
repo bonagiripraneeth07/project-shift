@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift | Booking</title>
+    <link rel="icon"   href="/images/logos/logo.png" />
+     
+  
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/booking.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--map-->
+<style>
+  
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+<body >
+ 
+   <div>
+   <!--<img class="booking-home-bc" src="/images/bc/booking-home-bc.jpg" alt="">-->
+   <video src="/videos/timelapse - Made with Clipchamp.mp4" muted loop=" true" autoplay="true" style="object-fit:contain; width: 100%;"></video>
+
+</div> 
+ 
+  <!----------------------------------------------------------map------------------------------------------------------>
+ <div id="booking-section-div" >
+    <div class="city-dropdown">
+    <span class="city">City: </span>
+    <div class="dropdown">
+        <select name="" id="city-selection"class= "select-section">
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Surat">Surat</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Pune">Pune</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            <option value="Patna">Patna</option>
+            <option value="Nashik">Nashik</option>
+            <option value="Agra">Agra</option>
+            <option value="Chennai">Chennai</option>
+        </select>
+      </div></div>
+      <div class="input-search">
+        <span class="source-span">source</span>
+<input id="source" class="autocomplete-input  " placeholder="Enter source location" type="text" />
+<div id="source-suggestions" class="autocomplete-suggestions"></div>
+<span class=" ">Destination</span>
+<input id="destination" class="autocomplete-input" placeholder="Enter destination location" type="text" />
+<div id="destination-suggestions" class="autocomplete-suggestions"></div>
+<span class="">Phone Number</span>
+<input type=" " class="phone-number-input"  >
+<span class=" ">Date</span>
+<input type="date" class="date-picker">
+<span>Choose Sutable  Vehicle </span>
+<div class="dropdown choose-vehicle">
+     
+    <select name="" id="vehicle-select"class ="select-section">
+      <option></option>
+      <option value="Bike">Bike</option>
+      <option value="Small">Small</option>
+      <option value="Medium">Medium</option>
+      <option value="Large">Large</option>
+      
+    </select><br>
+    <p style="padding: 10px 0px;  "><img src="images/info.png" alt=""> Trouble in choosing a Suitable vehicle ? feel free to <b style="color: brown; font-weight: 900; text-decoration:underline;">contact us</b> </p>
+  </div> 
+<div id="map" ></div>
+<p id="distance"> </p>
+ 
+<button class="check-btn"  onclick="window.location.href='#main'"> check</button>
+</div>
+  </div>
+ 
+  
+  <div class="main" id="main">
+    <div class="result-container-grid" >
+      
+    </div>
+    <!-- Button trigger modal -->
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Confirm Booking </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="confirm-page-images-div">
+            <img src="/images/vehicle-owners/small/2.jpg" style="width: 100px; object-fit: cover;" alt="">
+            <img src="/images/vehicles/bike.jpg"style="width: 200px; object-fit: cover;" alt="">
+          </div>
+          <div class="confirm-page-vehicle-details">
+              name: raju <br>
+              age : 32<br>
+            
+              contact Details : 987654321<br>
+              Estimated cost : ₹60/4km<br>
+               Vehcile Type :medium<br>
+               vehicle name : tata sumo
+          </div>
+          <div class="confirm-page-booking-details ">
+            <div class="confirm-page-location-img">
+              <img src="images/location/source.png" alt=""> 
+              <img src="images/location/destination.png" alt=""> 
+            </div>
+            <div class="confirm-page-location-img"> 
+            <p> FROM:  hydrrvad</p>
+            <p>TO :alwal</p>
+          </div>
+          <div class="confirm-page-vehicle-details">
+            Booking Details   <br>
+           Arriving date: 1/01/24<br>
+           mobile Number : 901283<br>
+          </div>
+          </div>
+        </div>
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary confirm-booking-btn" id="confirm-booking-btn" > Confirm Booking</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+  </div> 
+  
+ 
+  <script  type="module" src="/booking.js"></script>
+  <script>
+    // Initialization for ES Users
+ 
+    var map = L.map('map').setView([18.112436,79.019302],10);
+    var sourceMarker, destinationMarker;
+    let distancegot ;
+    function search(){
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+    }).addTo(map);
+    }
+    function autocomplete(inputId, suggestionsId) {
+        var input = document.getElementById(inputId);
+        var suggestions = document.getElementById(suggestionsId);
+  
+        input.addEventListener('input', function() {
+            var query = input.value;
+            if (query.length < 3) {
+                suggestions.innerHTML = '';
+                return;
+            }
+       
+            fetch('https://photon.komoot.io/api/?q=' + query)
+                .then(response => response.json())
+                .then(data => {
+                    suggestions.innerHTML = '';
+                    data.features.forEach(feature => {
+                        var suggestion = document.createElement('div');
+                        suggestion.className = 'autocomplete-suggestion';
+                        suggestion.innerHTML = feature.properties.name;
+                        suggestion.addEventListener('click', function() {
+                            input.value = feature.properties.name;
+                            var latlng = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+                            if (inputId === 'source') {
+                                if (sourceMarker) map.removeLayer(sourceMarker);
+                                sourceMarker = L.marker(latlng).addTo(map).bindPopup('Source: ' + feature.properties.name).openPopup();
+                            } else {
+                                if (destinationMarker) map.removeLayer(destinationMarker);
+                                destinationMarker = L.marker(latlng).addTo(map).bindPopup('Destination: ' + feature.properties.name).openPopup();
+                            }
+                            suggestions.innerHTML = '';
+                            if (sourceMarker && destinationMarker) {
+                                calculateRouteAndDistance();
+                            }
+                        });
+                        suggestions.appendChild(suggestion);
+                    });
+                });
+        });
+    }
+
+    autocomplete('source', 'source-suggestions');
+    autocomplete('destination', 'destination-suggestions');
+ 
+    function calculateRouteAndDistance() {
+        var sourceLatLng = sourceMarker.getLatLng();
+         
+
+        var destinationLatLng = destinationMarker.getLatLng();
+        var routeUrl = `https://router.project-osrm.org/route/v1/driving/${sourceLatLng.lng},${sourceLatLng.lat};${destinationLatLng.lng},${destinationLatLng.lat}?overview=false`;
+
+        fetch(routeUrl)
+            .then(response => response.json())
+            .then(data => {
+                var distance = data.routes[0].distance / 1000; // distance in kilometers
+                document.getElementById('distance').innerHTML = 'Distance: ' + distance.toFixed(2) + ' km';
+                distancegot= distance;
+                var coordinates = data.routes[0].geometry.coordinates;
+                var latlngs = coordinates.map(coord => [coord[1], coord[0]]);
+                
+                if (window.routeLine) {
+                    map.removeLayer(window.routeLine);
+                }
+
+                window.routeLine = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+                map.fitBounds(window.routeLine.getBounds());
+            })
+            .catch(error => console.error(error));
+    }
+
+     search() 
+    </script>
+<!-- Bootstrap CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 
+   
+ <script src= 
+ "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+       integrity= 
+ "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+       crossorigin="anonymous"> 
+   </script> 
+   <script src= 
+ "https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+       integrity= 
+ "sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+       crossorigin="anonymous"> 
+   </script> 
+
+<!------------------------------------script for this page-------------------------------------------------------------->
+<script>
+  
+    let UserCreds = JSON.parse(sessionStorage.getItem('user-creds'));
+    let userInfo = JSON.parse(sessionStorage.getItem('user-info'));
+
+    console.log(UserCreds ,userInfo);
+    let checkcred=()=>{
+    if(!sessionStorage.getItem('user-creds'))
+    window.location.href='login.html';}
+    window.addEventListener('load',checkcred);
+    </script>
+   
+
+
+   <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "lBETuVUVxxtJBLb5P",
+      });
+   })();
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="icon"   href="/images/logos/logo.png" />
+    <title>Shift | Login</title>
+  </head>
+  <body>
+  <!--<img src="/images/bc/bc1-top.png "class="bc1">-->
+    <img src="/images/bc/bc2.png" class="bc1" alt="">
+   
+    <div class="main">
+        
+    <form id="Mainform" class="w-25 m-4 Mainform" >
+        <h4>Welcome </h4>
+        <h1 class="login-heading">Login </h1> 
+        <img src="/images/logos/logotext.png" class="logo-text" alt="">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="emailinput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="passwordinput" placeholder="Passwordinput">
+            <label for="floatingPassword">Password</label>
+          </div>
+
+        
+     <button type="submit" class="  btn btn-primary custom-btn "style = 'float : right;'>Sign In</button>
+<a href="register.html"><button type="button" class="btn btn-primary me-2 custom-btn"style = 'float : right;'>Create Account</button></a> 
+    </form> 
+</div>
+<div class="  d-flex justify-content-center"  >
+    <div class="spinner-border spinner"  id="spinner" role="status">
+      <span class="sr-only  " ></span>
+    </div>
+  </div>
+    <!----------------------------------------------------------------SCRIPTS---------------------------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import{getDatabase,ref,get, child}
+        from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
+        import {getAuth ,signInWithEmailAndPassword}
+        from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyCWJeuvD-m-JGWitFfpHT1lJ5jalfg63wo",
+          authDomain: "fir-1-f6699.firebaseapp.com",
+          databaseURL: "https://fir-1-f6699-default-rtdb.firebaseio.com",
+          projectId: "fir-1-f6699",
+          storageBucket: "fir-1-f6699.appspot.com",
+          messagingSenderId: "437752703332",
+          appId: "1:437752703332:web:9240ff44fa4b6c611ff271"
+        };
+     
+         const app = initializeApp(firebaseConfig);
+         const db= getDatabase();
+         const auth = getAuth(app);
+         const dbref= ref(db);
+         let Emailinput = document.getElementById('emailinput');
+         let Passwordinput = document.getElementById('passwordinput');
+         let Fnameinput = document.getElementById('firstnameinput');
+         let Lnameinput = document.getElementById('lastnameinput');
+         let Mainform = document.getElementById('Mainform');
+let SingInUser =(evt)=>{
+  
+    evt.preventDefault();
+    signInWithEmailAndPassword(auth,Emailinput.value,Passwordinput.value).then((credentials)=>{
+        console.log(credentials);
+       document.getElementById('spinner').style.display='block';
+        get(child(dbref,'UserAuthList/'+ credentials.user.uid)).then((snapshot)=>{
+if(snapshot.exists){
+    
+    sessionStorage.setItem('user-info',JSON.stringify({
+        firstname:snapshot.val().firstname,
+        lastname:snapshot.val().lastname,
+    }))
+    sessionStorage.setItem('user-creds',JSON.stringify(credentials.user));
+      window.location.href= 'home.html';
+}
+        })
+
+    })
+    .catch((error)=>{
+ alert(error.message);
+    });
+}
+ Mainform.addEventListener('submit',SingInUser);
+ </script>
+  </body>
+</html>

@@ -1,0 +1,340 @@
+body {
+    margin: 0px;
+
+
+}
+
+
+
+.booking-home-bc {
+    width: 100%;
+    object-fit: cover;
+
+
+    filter: blur(1px);
+
+
+}
+
+#booking-section-div {
+    box-shadow: 4px -41px 164px -7px rgba(0, 0, 0, 0.82);
+    font-family: DM Sans;
+    font-weight: 700;
+    border-radius: 8px;
+    width: 900px;
+    position: relative;
+    padding-right: 30px;
+    left: 20%;
+    background-color: #a1a1a1a7;
+    margin-top: -130px;
+    backdrop-filter: blur(10px);
+}
+
+.city-dropdown {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.city {
+    padding: 5px;
+}
+
+.autocomplete-input {
+    display: block;
+    margin-top: 0px;
+}
+
+.input-search {
+    width: 900px;
+    position: relative;
+    left: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-picker {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.phone-number-input {
+    display: block;
+    margin: 0px 0px 20px;
+}
+
+.choose-vehicle {
+    margin: 5px 0px 30px 0px;
+}
+
+.select-section {
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(2, 2, 2);
+    font-weight: 400;
+    font-family: poppins;
+}
+
+#map {
+    border-radius: 5px;
+    height: 400px;
+    width: 90%;
+    margin-left: -140px;
+
+}
+
+#distance {
+    color: rgb(255, 255, 255);
+    margin: 20px;
+    position: relative;
+    left: 18%;
+    font-weight: 700;
+    font-family: DM Sans;
+}
+
+#source {
+    display: block;
+    margin-top: 0px;
+
+}
+
+#destination {
+    display: block;
+    margin-top: 0px;
+}
+
+.autocomplete-input {
+    width: 30%;
+    height: 40px;
+    margin: 20px 0;
+
+}
+
+.autocomplete-suggestions {
+    width: 50%;
+    margin: 30px 0px 30px 0px;
+    border: 1px solid #cccccc;
+    background: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+
+}
+
+.check-btn {
+    border-style: none;
+    background-color: #dc66fc;
+    border-radius: 5px;
+    position: relative;
+    left: 25%;
+    color: #f7f4fa;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    font-family: DM Sans;
+    transition: 0.5s;
+    font-weight: 700;
+}
+
+.check-btn:hover {
+    background-color: #ffffffa7;
+    color: #dc66fc;
+
+}
+
+.confirm-page-final-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.chat-btn {
+    border-style: none;
+    background-color: rgb(253, 253, 253);
+    color: rgb(53, 228, 53);
+    border-radius: 5px;
+}
+
+.contact-btn {
+    border-style: none;
+    background-color: rgb(253, 253, 253);
+    color: rgb(47, 5, 201);
+    border-radius: 5px;
+}
+
+.more-details-btn-js {
+    background-color: #ffffff;
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: rgb(212, 0, 255);
+}
+
+.show-moredetails {
+    position: relative;
+    left: 50%;
+    top: -15%;
+    transition: 1s;
+
+
+}
+
+
+
+.show-moredetails__ {
+    width: 400px;
+
+    font-family: DM Sans;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgb(140, 135, 143);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+
+
+}
+
+
+
+.show-moredetails__ a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+}
+
+.result-container:hover .show-moredetails__ {
+    transition: 2s;
+    display: block;
+
+
+}
+
+.main {
+    margin-top: 50px;
+}
+
+.result-container-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.result-container {
+    padding-top: 40px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    border-right: 1px solid rgb(231, 231, 231);
+    border-bottom: 1px solid rgb(231, 231, 231);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.result-container:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.result-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+
+.result-image {
+
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.result details {
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.result-rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-rating-stars {
+    width: 100px;
+    margin-right: 6px;
+}
+
+
+
+.result-price {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+
+
+.added-to-cart {
+    color: rgb(6, 125, 98);
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+
+    opacity: 0;
+}
+
+.added-to-cart img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.book-button {
+    width: 100%;
+    padding: 8px;
+    border-radius: 50px;
+    border-style: none;
+    background-color: #b23ce5a7;
+    color: white;
+}
+
+.added-cart {
+    color: blue;
+    padding-left: 60px;
+    margin-top: 5px;
+
+}
+
+.img-location {
+    height: 10px;
+    width: 10px;
+    padding-right: 115px;
+}
+
+.confirm-page-images-div {
+    display: flex;
+    object-fit: cover;
+    justify-content: space-between;
+    font-family: poppins;
+}
+
+.confirm-page-vehicle-details {
+    display: flex;
+    justify-content: center;
+    font-family: poppins;
+}
+
+.confirm-page-location-img {
+    display: flex;
+    justify-content: space-between;
+    font-family: poppins;
+}
