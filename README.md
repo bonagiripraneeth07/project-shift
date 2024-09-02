@@ -4,9 +4,13 @@
 SHIFT is an innovative online platform designed to streamline porting services for individuals and businesses.
 Whether you need to transport goods, relocate, or handle logistics, SHIFT connects users with reliable porters and moving services.
 
-
+ 
 USER REGISTRATION AND LOGIN:
 ![1](https://github.com/user-attachments/assets/6654bf35-6104-44c8-b7fa-d96ef3c83582)
+
+![registrartion](https://github.com/user-attachments/assets/d4a57f4d-c50f-449a-a8de-889259901729)
+
+
 
 HOME :
 ![homepage](https://github.com/user-attachments/assets/730d5053-31c4-424c-b086-9e45fc8edcfb)
