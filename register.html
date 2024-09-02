@@ -42,7 +42,7 @@
     <!----------------------------------------------------------------SCRIPTS---------------------------------------------------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-
+   
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
@@ -74,7 +74,11 @@ let RegisterUser =(evt)=>{
     createUserWithEmailAndPassword(auth,Emailinput.value,Passwordinput.value).then((credentials)=>{
         console.log(credentials);
          document.getElementById('account-creation').style.display='block';
-
+         emailjs.send("service_j6cqqhw","template_kwg1a5a",{
+Customer_Name:Fnameinput.value,
+to_email: Emailinput.value,
+reply_to: "-",
+});
     set(ref(db,'UserAuthList/'+ credentials.user.uid),{
         firstname: Fnameinput.value,
         lastname:Lnameinput.value
@@ -91,5 +95,15 @@ let RegisterUser =(evt)=>{
 }
  Mainform.addEventListener('submit',RegisterUser);
  </script>
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function(){
+emailjs.init({
+  publicKey: "lBETuVUVxxtJBLb5P",
+});
+})();
+</script>
   </body>
 </html>
